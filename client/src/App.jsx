@@ -4,7 +4,7 @@ import Home from "./Pages/Home"
 import SignIn from "./Pages/SignIn"
 import About from "./Pages/About"
 import Profile from "./Pages/Profile"
-import LogIn from "./Pages/LogIn"
+import SignUp from "./Pages/SignUp"
 import Header from "./Components/Header"
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/sign-in" element={<SignIn/>} />
-      <Route path="/log-in" element={<LogIn/>} />
+      <Route path="/sign-up" element={<SignUp/>} />
       <Route path="/about" element={<About/>} />
       <Route path="/profile" element={<Profile/>} />
     </Routes>

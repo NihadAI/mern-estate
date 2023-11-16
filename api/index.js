@@ -21,8 +21,7 @@ app.use(cookieParser())
 
 app.listen(3000, () => {
     console.log('running on port 300');
-}
-);
+});
 
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);

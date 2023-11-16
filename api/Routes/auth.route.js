@@ -1,5 +1,10 @@
 import express from 'express'
-import { signin, signup, google, signOut } from '../Controllers/auth.controller.js';
+import {
+    signin,
+    signup,
+    google,
+    signOut
+} from '../Controllers/auth.controller.js';
 
 const router = express.Router();
 

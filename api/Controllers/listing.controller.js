@@ -1,7 +1,5 @@
 import Listing from '../Models/listing.model.js';
-import {
-    errorHandler
-} from '../utils/error.js';
+import { errorHandler } from '../utils/error.js';
 
 export const createListing = async (req, res, next) => {
     try {
@@ -43,9 +41,8 @@ export const updateListing = async (req, res, next) => {
     try {
         const updatedListing = await Listing.findByIdAndUpdate(
             req.params.id,
-            req.body, {
-            new: true
-        }
+            req.body,
+            { new: true }
         );
         res.status(200).json(updatedListing);
     } catch (error) {
@@ -63,7 +60,7 @@ export const getListing = async (req, res, next) => {
     } catch (error) {
         next(error);
     }
-}
+};
 
 export const getListings = async (req, res, next) => {
     try {
@@ -80,6 +77,7 @@ export const getListings = async (req, res, next) => {
         if (furnished === undefined || furnished === 'false') {
             furnished = { $in: [false, true] };
         }
+
         let parking = req.query.parking;
 
         if (parking === undefined || parking === 'false') {

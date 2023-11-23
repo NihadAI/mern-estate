@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import { getDownloadURL, getStorage, ref, uploadBytesResumable, } from 'firebase/storage';
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from 'firebase/storage';
 import { app } from '../firebase';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -46,7 +51,7 @@ export default function CreateListing() {
           setUploading(false);
         })
         .catch(() => {
-          setImageUploadError('Image upload failed (4 mb max per image)');
+          setImageUploadError('Image upload failed (2 mb max per image)');
           setUploading(false);
         });
     } else {
@@ -155,12 +160,44 @@ export default function CreateListing() {
       </h1>
       <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4'>
         <div className='flex flex-col gap-4 flex-1'>
-          <input type='text' placeholder='Name' className='border p-3 rounded-lg' id='name' maxLength='62' minLength='10' required onChange={handleChange} value={formData.name} />
-          <textarea type='text' placeholder='Description' className='border p-3 rounded-lg' id='description' required onChange={handleChange} value={formData.description} />
-          <input type='text' placeholder='Address' className='border p-3 rounded-lg' id='address' required onChange={handleChange} value={formData.address} />
+          <input
+            type='text'
+            placeholder='Name'
+            className='border p-3 rounded-lg'
+            id='name'
+            maxLength='62'
+            minLength='10'
+            required
+            onChange={handleChange}
+            value={formData.name}
+          />
+          <textarea
+            type='text'
+            placeholder='Description'
+            className='border p-3 rounded-lg'
+            id='description'
+            required
+            onChange={handleChange}
+            value={formData.description}
+          />
+          <input
+            type='text'
+            placeholder='Address'
+            className='border p-3 rounded-lg'
+            id='address'
+            required
+            onChange={handleChange}
+            value={formData.address}
+          />
           <div className='flex gap-6 flex-wrap'>
             <div className='flex gap-2'>
-              <input type='checkbox' id='sale' className='w-5' onChange={handleChange} checked={formData.type === 'sale'} />
+              <input
+                type='checkbox'
+                id='sale'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.type === 'sale'}
+              />
               <span>Sell</span>
             </div>
             <div className='flex gap-2'>
